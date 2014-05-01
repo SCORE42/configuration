@@ -3,6 +3,7 @@
     repo="{{ item.repo_url }}"
     dest="{{ edxapp_course_data_dir }}/{{ item.repo_name }}"
     version="{{ item.version }}"
+    accept_hostkey=True
   sudo_user: "{{ edxapp_user }}"
   with_items: EDXAPP_XML_COURSES
 
