@@ -40,7 +40,7 @@
   when: item.disposition == "import"
 
 - name: delete courses that were fully imported
-  file: src="{{ edxapp_coure_data_dir }}/{{ item.repo_name }}" state=absent
+  file: src="{{ edxapp_course_data_dir }}/{{ item.repo_name }}" state=absent
   with_items: EDXAPP_XML_COURSES
   when: item.disposition == "import"
 
