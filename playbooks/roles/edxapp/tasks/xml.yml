@@ -40,7 +40,7 @@
   when: item.disposition == "import"
 
 - name: delete courses that were fully imported
-  file: src="{{ edxapp_course_data_dir }}/{{ item.repo_name }}" state=absent
+  file: path="{{ edxapp_course_data_dir }}/{{ item.repo_name }}" state=absent
   with_items: EDXAPP_XML_COURSES
   when: item.disposition == "import"
 
@@ -58,5 +58,5 @@
   when: EDXAPP_XML_S3_BUCKET is defined and EDXAPP_XML_S3_BUCKET != "" and EDXAPP_XML_S3_KEY is defined and EDXAPP_XML_S3_KEY != ""
 
 - name: remove archive from disk
-  file: src="/tmp/static_course_content.tar.gz" state=absent
+  file: path="/tmp/static_course_content.tar.gz" state=absent
   when: EDXAPP_XML_S3_BUCKET is defined and EDXAPP_XML_S3_BUCKET != "" and EDXAPP_XML_S3_KEY is defined and EDXAPP_XML_S3_KEY != ""
