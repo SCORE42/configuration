@@ -5,6 +5,8 @@
     version="{{ item.version }}"
     accept_hostkey=True
   sudo_user: "{{ edxapp_user }}"
+  environment:
+    GIT_SSH: "{{ edxapp_git_ssh }}"
   with_items: EDXAPP_XML_COURSES
 
 - name: update course.xml
