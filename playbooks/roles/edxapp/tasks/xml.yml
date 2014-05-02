@@ -18,7 +18,7 @@
 
 - name: make static symlinks
   file: >
-    src="{{ item.repo_location }}/static"
+    src="{{ edxapp_course_data_dir }}/{{ item.repo_name }}/static"
     dest="{{ edxapp_course_static_dir }}/{{ item.repo_name}}"
   with_items: EDXAPP_XML_COURSES
   when: item.disposition == "on disk" or item.disposition == "no static import"
